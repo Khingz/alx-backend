@@ -46,12 +46,14 @@ class Server:
         pag_params = index_range(page, page_size)
         result_dataset = self.dataset()
         pagination = self.__dataset[pag_params[0]:pag_params[1]]
+        """"total page(tp)"""
+        tp = int(len(result_dataset) / page_size)
         result = {
                  "page_size": len(pagination),
                  "page": page,
                  "data": pagination,
-                 "next_page": page + 1,
+                 "next_page": page + 1 if (page + 1 < tp) else None,
                  "prev_page": page - 1 if (page - 1 > 0) else None,
-                 "total_pages": int(len(result_dataset) / page_size)
+                 "total_pages": tp
                  }
         return result
