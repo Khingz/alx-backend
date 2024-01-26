@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+"""Comment"""
 import csv
 import math
 from typing import List, Tuple, Dict
@@ -42,7 +44,7 @@ class Server:
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
         pag_params = index_range(page, page_size)
-        self.dataset()
+        result_dataset = self.dataset()
         pagination = self.__dataset[pag_params[0]:pag_params[1]]
         result = {
                  "page_size": len(pagination),
@@ -50,6 +52,6 @@ class Server:
                  "data": pagination,
                  "next_page": page + 1,
                  "prev_page": page - 1 if (page - 1 > 0) else None,
-                 "total_pages": 1000
+                 "total_pages": int(len(result_dataset) / page_size)
                  }
         return result
