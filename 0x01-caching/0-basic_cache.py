@@ -7,14 +7,11 @@ class BasicCache(BaseCaching):
     """Simple caching class"""
     def __init__(self):
         """init method"""
-        super().__init__()
 
     def put(self, key, item):
         """Insert to cache"""
         if key is not None and item is not None:
             self.cache_data[key] = item
-        else:
-            return
 
     def get(self, key):
         """get a calue from dict"""
