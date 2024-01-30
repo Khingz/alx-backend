@@ -13,6 +13,8 @@ class BasicCache(BaseCaching):
         """Insert to cache"""
         if key is not None and item is not None:
             self.cache_data[key] = item
+        else:
+            return
 
     def get(self, key):
         """get a calue from dict"""
