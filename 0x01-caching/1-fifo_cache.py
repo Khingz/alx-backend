@@ -15,7 +15,7 @@ class FIFOCache(BaseCaching):
     def put(self, key, item):
         """Put method
         """
-        if key is not None or item is not None:
+        if key is not None and item is not None:
             exist = self.cache_data.get(key, None)
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS and not exist:
                 first_key = next(iter(self.cache_data))
