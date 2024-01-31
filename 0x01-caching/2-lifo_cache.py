@@ -1,17 +1,22 @@
 #!/usr/bin/python3
-"""Comment"""
+"""Lifo caching module
+"""
 from base_caching import BaseCaching
 
 
 class LIFOCache(BaseCaching):
-    """FIFO cahcing class"""
+    """Represents an object that allows storing and
+    retrieving items from a dictionary. - LIFO
+    """
     def __init__(self):
-        """init method"""
+        """init method
+        """
         super().__init__()
         self.last_key = None
 
     def put(self, key, item):
-        """Put method"""
+        """Inser into cache
+        """
         if key is not None or item is not None:
             exist = self.cache_data.get(key, None)
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS and not exist:
@@ -21,5 +26,6 @@ class LIFOCache(BaseCaching):
             self.last_key = key
 
     def get(self, key):
-        """get a calue from dict"""
+        """get a calue from dict
+        """
         return self.cache_data.get(key, None)
