@@ -1,21 +1,24 @@
 #!/usr/bin/env python3
-"""Basic caching module.
+"""Comment
 """
 from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
-    """Represents an object that allows storing and
-    retrieving items from a dictionary.
+    """Simple caching class
     """
+    def __init__(self):
+        """init method"""
+        super().__init__()
+
     def put(self, key, item):
-        """Adds an item in the cache.
+        """Insert to cache
         """
         if key is None or item is None:
             return
         self.cache_data[key] = item
 
     def get(self, key):
-        """Retrieves an item by key.
+        """get a calue from dict
         """
         return self.cache_data.get(key, None)
