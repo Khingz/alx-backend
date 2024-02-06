@@ -12,6 +12,7 @@ class Config(object):
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
+@babel.localeselector
 def get_locale():
     """Comment"""
     return request.accept_languages.best_match(app.config['LANGUAGES'])
